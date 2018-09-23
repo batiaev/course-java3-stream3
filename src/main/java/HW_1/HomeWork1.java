@@ -8,14 +8,14 @@ public class HomeWork1 {
 
     public static void main(String[] args) {
         // Задача 1.
-        String[] strArr = {"Hello", "World"};
-        String[] b = swap(strArr);
+        String[] strArr = {"Hello", "World", "Hi"};
+        String[] b = swap(strArr,0, 2);
 
-        Integer[] intArr = {1, 2};
-        Integer[] b2 = swap(intArr);
+        Integer[] intArr = {1, 2, 3, 4, 5};
+        Integer[] b2 = swap(intArr, 0, 2);
 
-        Double[] dArr = {1.1, 2.5};
-        Double[] d = swap(dArr);
+        Double[] dArr = {1.1, 2.5, 3.2, 1.7, 5.6};
+        Double[] d = swap(dArr, 0, 1);
 
         System.out.println("String array: " + Arrays.toString(b));
         System.out.println("Integer array: " + Arrays.toString(b2));
@@ -29,8 +29,8 @@ public class HomeWork1 {
     }
 
     // Метод меняющий 2 аргумента местами.
-    static <T> T[] swap(T[] t) {
-        Collections.swap(Arrays.asList(t), 0, 1);
+    static <T> T[] swap(T[] t, int a, int b) {
+        Collections.swap(Arrays.asList(t), a, b);
         return t;
     }
 
