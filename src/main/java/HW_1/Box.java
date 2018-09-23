@@ -1,12 +1,13 @@
 package HW_1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // Обобщенный класс Box с ограниченным параметром типом Т extends Fruit.
 public class Box<T extends Fruit> {
 
     // Коробка для хранения объектов типа Т.
-    private ArrayList<T> box;
+    private List<T> box;
 
     // Вес заполненной коробки.
     private float boxWeight;
@@ -30,7 +31,7 @@ public class Box<T extends Fruit> {
         return boxWeight;
     }
 
-    public ArrayList<T> getBox() {
+    public List<T> getBox() {
         return box;
     }
 
