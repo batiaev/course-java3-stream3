@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a0ea6-f1f7-4fec-a42d-e49092b2f3f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW_1/Apple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW_1/Box.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW_1/Fruit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW_1/HomeWork1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW_1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HW_1/Orange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stream3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/AuthMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/BaseAuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/Channel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/ChannelBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/ClientUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/ConsoleClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/MainClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HM_2/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stream3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stream3.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,28 +39,32 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="iml" value="1" />
-          <entry key="java" value="11" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="24" />
           <entry key="name" value="1" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="11" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="24" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="51" />
+          <entry key="java" value="163" />
+          <entry key="txt" value="84" />
+          <entry key="xml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="51" />
+          <entry key="JAVA" value="163" />
+          <entry key="PLAIN_TEXT" value="84" />
+          <entry key="XML" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -64,37 +73,67 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/HomeWork1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Box.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="36" column="81" selection-start-line="36" selection-start-column="81" selection-end-line="36" selection-end-column="81" />
-              <folding>
-                <element signature="e#555#556#0" expanded="true" />
-                <element signature="e#608#609#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/AuthMessage.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/AuthService.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/Server.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/Client.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/MessageType.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/User.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/ClientUI.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/ClientController.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/ConsoleClient.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="30" column="77" lean-forward="true" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+            <state>
+              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,10 +143,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/Lesson1.java" />
         <option value="$PROJECT_DIR$/src/main/java/HW_1/Orange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/HW_1/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/HW_1/Box.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/test/DbTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/HW_1/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/HW_1/HomeWork1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/HM_2/MainClass.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectFrameBounds">
@@ -147,14 +196,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="stream3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="course-java3-stream3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="HW_1" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -165,7 +206,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537534231150" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537897111568" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
@@ -174,6 +215,7 @@
       <recent name="HW_1" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Darius\IdeaProjects\course-java3-stream3\src\main\java\HM_2" />
       <recent name="C:\Users\Darius\IdeaProjects\course-java3-stream3\src\main\java\HW_1" />
     </key>
   </component>
@@ -189,7 +231,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HomeWork1">
+  <component name="RunManager" selected="Application.DbTest">
+    <configuration name="DbTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.DbTest" />
+      <module name="stream3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HomeWork1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HW_1.HomeWork1" />
       <module name="stream3" />
@@ -256,11 +312,13 @@
       <item itemvalue="Application.Lesson1" />
       <item itemvalue="Application.HomeWork1" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.DbTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HomeWork1" />
+        <item itemvalue="Application.DbTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.HomeWork1" />
         <item itemvalue="Application.Lesson1" />
       </list>
     </recent_temporary>
@@ -276,10 +334,32 @@
       <option name="presentableId" value="Default" />
       <updated>1537532054873</updated>
     </task>
+    <task id="LOCAL-00001" summary="HomeWork_1">
+      <created>1537534414539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1537534414539</updated>
+    </task>
+    <task id="LOCAL-00002" summary="HomeWork_1 fixed swap method">
+      <created>1537684188616</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1537684188616</updated>
+    </task>
+    <task id="LOCAL-00003" summary="HomeWork_1 changed ArrayList&lt;T&gt; to List&lt;T&gt;">
+      <created>1537712509989</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1537712509989</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="968" y="4" width="955" height="1047" extended-state="0" />
+    <frame x="968" y="4" width="955" height="1047" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -287,7 +367,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24916202" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24916202" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
@@ -295,7 +375,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32968238" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32968238" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -312,6 +392,12 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HomeWork_1" />
+    <MESSAGE value="HomeWork_1 fixed swap method" />
+    <MESSAGE value="HomeWork_1 changed ArrayList&lt;T&gt; to List&lt;T&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="HomeWork_1 changed ArrayList&lt;T&gt; to List&lt;T&gt;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name">
@@ -358,9 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stream3.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Fruit.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -370,30 +453,89 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Apple.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="30" column="77" lean-forward="true" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+        <state relative-caret-position="195">
+          <caret line="491" column="23" selection-start-line="491" selection-start-column="23" selection-end-line="491" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/HomeWork1.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/DbTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        <state relative-caret-position="416">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stream3.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Box.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="36" column="81" selection-start-line="36" selection-start-column="81" selection-end-line="36" selection-end-column="81" />
+        <state relative-caret-position="368">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#555#556#0" expanded="true" />
             <element signature="e#608#609#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HW_1/HomeWork1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/AuthMessage.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/AuthService.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/Server.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/Client.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/MessageType.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/User.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/ClientUI.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/ConsoleClient.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
