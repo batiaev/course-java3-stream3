@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="235a0ea6-f1f7-4fec-a42d-e49092b2f3f2" name="Default Changelist" comment="HomeWork_1 changed ArrayList&lt;T&gt; to List&lt;T&gt;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/homework/Apple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/homework/Banana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/homework/Box.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/homework/Fruit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/homework/Homework.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson1/homework/Orange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiaev/java3/lesson2/DbExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/console.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/lesson2.db" afterDir="false" />
+    <list default="true" id="235a0ea6-f1f7-4fec-a42d-e49092b2f3f2" name="Default Changelist" comment="HomeWork_2 added nick changing">
+      <change afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HM_2/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HM_2/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HM_2/BaseAuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HM_2/BaseAuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/HM_2/ChannelBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HM_2/ChannelBase.java" afterDir="false" />
@@ -55,14 +46,14 @@
         <counts>
           <entry key="gitignore" value="7" />
           <entry key="java" value="178" />
-          <entry key="txt" value="84" />
+          <entry key="txt" value="130" />
           <entry key="xml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="178" />
-          <entry key="PLAIN_TEXT" value="91" />
+          <entry key="PLAIN_TEXT" value="137" />
           <entry key="XML" value="12" />
         </counts>
       </usages-collector>
@@ -108,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="144">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -208,7 +199,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537986505388" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537986695123" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
@@ -373,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537712509989</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="HomeWork_2 added nick changing">
+      <created>1537986687017</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1537986687017</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -415,7 +413,8 @@
     <MESSAGE value="HomeWork_1" />
     <MESSAGE value="HomeWork_1 fixed swap method" />
     <MESSAGE value="HomeWork_1 changed ArrayList&lt;T&gt; to List&lt;T&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="HomeWork_1 changed ArrayList&lt;T&gt; to List&lt;T&gt;" />
+    <MESSAGE value="HomeWork_2 added nick changing" />
+    <option name="LAST_COMMIT_MESSAGE" value="HomeWork_2 added nick changing" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name">
@@ -674,8 +673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HM_2/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state relative-caret-position="144">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

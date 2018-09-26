@@ -47,6 +47,9 @@ public class ClientHandler {
                         case PRIVATE_MESSAGE:
                             sendPrivateMessage(msg.getBody());
                             break;
+                        case RENAME_MESSAGE:
+                            rename(msg);
+                            break;
                         case BROADCAST_CHAT:
                             server.sendBroadcastMessage(
                                     nick + " : " + msg.getBody()
@@ -61,6 +64,13 @@ public class ClientHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void rename(Message msg) {
+        String[] str = msg.getBody().split(" ");
+        server.getAuthService().rename(nick, str[2]);
+        server.sendBroadcastMessage(nick + " renamed to: " + str[2]);
+        nick = str[2];
     }
 
     private void sendPrivateMessage(String messageWithNickTo) {

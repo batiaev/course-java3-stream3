@@ -18,6 +18,20 @@ public class BaseAuthService implements AuthService {
     }
 
     @Override
+    public void rename(String nick, String newNick) {
+        String sql = "UPDATE user SET nickname = ? WHERE nickname = ?";
+        try (Connection conn = DriverManager.getConnection(DB_NAME_URL)) {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, newNick);
+            statement.setString(2, nick);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public String authByLoginAndPassword(String login, String password) {
 
         // Запрос в базу данных для получения nickname из таблицы user
@@ -25,7 +39,6 @@ public class BaseAuthService implements AuthService {
         String sql = "SELECT nickname FROM user WHERE login = ? AND password " +
                 "= ?";
 
-        System.out.println(sql);
         // Получаем соединение с базой данных.
         try (Connection conn = DriverManager.getConnection(DB_NAME_URL)) {
 
