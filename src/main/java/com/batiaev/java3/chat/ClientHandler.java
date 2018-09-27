@@ -34,6 +34,8 @@ public class ClientHandler implements Closeable {
                             break;
                         case BROADCAST_CHAT:
                             server.sendBroadcastMessage(nick + " : " + msg.getBody());
+                        case CHANGE_LOGIN:
+                            changeLogin();
                         default:
                             System.out.println("invalid message type");
                     }
@@ -42,6 +44,10 @@ public class ClientHandler implements Closeable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void changeLogin() {
+
     }
 
     private void sendPrivateMessage(String messageWithNickTo) {
