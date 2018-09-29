@@ -1,14 +1,17 @@
 package HM_2;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
+import java.util.Date;
 
 public class ClientHandler {
     private Server server;
     private Socket socket;
     private String nick;
     private Channel channel;
-    Thread t;
+    private Thread t;
+    private BufferedReader in = null;
+    private BufferedWriter out = null;
 
     private static final int TIME_OUT = 30000;
 
@@ -17,6 +20,16 @@ public class ClientHandler {
         this.socket = socket;
         long current = System.currentTimeMillis();
         try {
+
+            // Создается файл для записи истории чата
+            out = new BufferedWriter(
+                    new FileWriter("chat_history.txt", true)
+            );
+
+            in = new BufferedReader(
+                    new FileReader("chat_history.txt")
+            );
+
             channel = ChannelBase.of(socket);
             t = new Thread(() -> {
 
@@ -39,6 +52,9 @@ public class ClientHandler {
                 System.out.println(nick + " handler waiting for new massages");
                 while (socket.isConnected()) {
                     Message msg = channel.getMessage();
+
+                    saveChatHistory(msg.toString());
+
                     if (msg == null) continue;
                     switch (msg.getType()) {
                         case EXIT_COMMAND:
@@ -61,6 +77,25 @@ public class ClientHandler {
             });
             t.start();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Метод сохраняет сообщения в файл
+    private void saveChatHistory(String msg) {
+        Date date = new Date(System.currentTimeMillis());
+        String msgFormat = String.format(
+                "%s: %s: %s\n", date, nick, msg
+        );
+
+        // Заполняем файл для тестирования
+        try {
+            for (int i = 0; i < 110; i++) {
+                out.write("Msg nr: " + i + " from: " + nick + "\n");
+            }
+            //out.write(msgFormat);
+            out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -115,6 +150,9 @@ public class ClientHandler {
                         this.nick = nick;
                         String msg = "Auth ok!";
                         System.out.println(msg);
+
+                        loadChatHistory();
+
                         sendMessage(msg);
                         server.subscribe(this);
 
@@ -125,6 +163,25 @@ public class ClientHandler {
                 sendMessage("Invalid command!");
             }
             return false;
+        }
+    }
+
+    // Метод загружает историю чата и выводит на экран пользователя
+    private void loadChatHistory() {
+        try {
+            String msg;
+            int count = 0;
+            while ((msg = in.readLine()) != null) {
+                if (count == 100) {
+                    break;
+                }
+                sendMessage(msg);
+                count++;
+            }
+            in.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
