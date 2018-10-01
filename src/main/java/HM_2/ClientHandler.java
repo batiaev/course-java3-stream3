@@ -2,7 +2,10 @@ package HM_2;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class ClientHandler {
     private Server server;
@@ -170,13 +173,15 @@ public class ClientHandler {
     private void loadChatHistory() {
         try {
             String msg;
-            int count = 0;
+            List<String> lines = new ArrayList<>();
+
             while ((msg = in.readLine()) != null) {
-                if (count == 100) {
-                    break;
-                }
-                sendMessage(msg);
-                count++;
+                lines.add(msg);
+            }
+
+            Collections.reverse(lines);
+            for (int i = 100; i >= 0; i--) {
+                sendMessage(lines.get(i));
             }
             in.close();
 
