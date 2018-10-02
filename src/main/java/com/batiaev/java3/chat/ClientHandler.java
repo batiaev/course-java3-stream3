@@ -4,6 +4,10 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class ClientHandler implements Closeable {
     private Server server;
@@ -11,6 +15,8 @@ public class ClientHandler implements Closeable {
     private String nick;
     private Channel channel;
     private LocalDateTime connectTime;
+    public final static ExecutorService executorService = Executors.newCachedThreadPool();
+    private Future future;
 
     public ClientHandler(Socket socket, Server server) {
         this.server = server;
@@ -19,7 +25,7 @@ public class ClientHandler implements Closeable {
 
         try {
             channel = ChannelBase.of(socket);
-            new Thread(() -> {
+            future = executorService.submit(() -> {
                 auth();
                 System.out.println(nick + " handler waiting for new massages");
                 while (socket.isConnected()) {
@@ -40,7 +46,7 @@ public class ClientHandler implements Closeable {
                             System.out.println("invalid message type");
                     }
                 }
-            }).start();
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -118,5 +124,9 @@ public class ClientHandler implements Closeable {
 
     public LocalDateTime getConnectTime() {
         return connectTime;
+    }
+
+    public Future getFuture() {
+        return future;
     }
 }
