@@ -1,4 +1,4 @@
-package HM_2;
+package HM_4.chat;
 
 public interface Controller {
     void sendMessage(String msg);

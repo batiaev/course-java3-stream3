@@ -1,13 +1,14 @@
-package HM_2;
+package HM_4.chat;
 
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class ClientHandler {
+public class ClientHandler implements Closeable{
     private Server server;
     private Socket socket;
     private String nick;
@@ -17,10 +18,13 @@ public class ClientHandler {
     private BufferedWriter out = null;
 
     private static final int TIME_OUT = 30000;
+    private LocalDateTime connectTime;
 
     public ClientHandler(Socket socket, Server server) {
         this.server = server;
         this.socket = socket;
+        connectTime = LocalDateTime.now();
+
         long current = System.currentTimeMillis();
         try {
 
@@ -196,5 +200,18 @@ public class ClientHandler {
 
     public String getNick() {
         return nick;
+    }
+
+    @Override
+    public void close() throws IOException {
+        socket.close();
+    }
+
+    public boolean isActive() {
+        return nick != null;
+    }
+
+    public LocalDateTime getConnectTime() {
+        return connectTime;
     }
 }

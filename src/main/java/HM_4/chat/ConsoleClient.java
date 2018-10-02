@@ -1,37 +1,29 @@
-package HM_2;
+package HM_4.chat;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.util.Random;
 import java.util.Scanner;
 
-public class ClientController implements Controller {
+public class ConsoleClient {
     private final static String SERVER_ADDR = "localhost";
     private final static int SERVER_PORT = 8189;
-    private ClientUI ui;
+    private static Scanner consoleScanner = new Scanner(System.in);
 
     private Socket sock;
     private Scanner in;
     private PrintWriter out;
-    private int index = new Random().nextInt(3) + 1;
 
-    public ClientController() {
-        initConnection();
+    public static void main(String[] args) {
+        new ConsoleClient();
     }
-
-    public void showUI(ClientUI ui) {
-        this.ui = ui;
-        ui.showUI();
-        //sendMessage("/auth login" + index + " pass" + index);
+    public ConsoleClient() {
+        initConnection();
     }
 
     private void initConnection() {
         try {
-            sock = new Socket();
-            sock.connect(new InetSocketAddress(SERVER_ADDR, SERVER_PORT));
-
+            sock = new Socket(SERVER_ADDR, SERVER_PORT);
             in = new Scanner(sock.getInputStream());
             out = new PrintWriter(sock.getOutputStream(), true);
         } catch (IOException e) {
@@ -44,27 +36,22 @@ public class ClientController implements Controller {
                     if (in.hasNext()) {
                         String w = in.nextLine();
                         if (w.startsWith("end session")) break;
-                        ui.addMessage(w);
+                        System.out.println(w);
                     }
                 }
             } catch (Exception e) {
             }
         }).start();
+        scanConsole();
     }
 
-    @Override
-    public void sendMessage(String msg) {
-        out.println(msg);
-    }
-
-    @Override
-    public void closeConnection() {
-        try {
-            sendMessage("/exit");
-            sock.close();
-            out.close();
-            in.close();
-        } catch (IOException exc) {
+    private void scanConsole() {
+        while (true) {
+            String msg = consoleScanner.nextLine();
+            if (msg != null && !msg.isEmpty()) {
+                out.println(msg);
+                if (msg.equals("end")) break;
+            }
         }
     }
 }

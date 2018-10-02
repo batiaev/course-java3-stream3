@@ -1,4 +1,4 @@
-package HM_2;
+package HM_4.chat;
 
 public enum MessageType {
     AUTH_MESSAGE,

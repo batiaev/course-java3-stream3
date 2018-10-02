@@ -1,20 +1,31 @@
-package HM_2;
+package HM_4.chat;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Server {
+    private static final long MAX_DELAY_TIME = 120;
     private ServerSocket serverSocket;
     private AuthService authService;
     private Map<String, ClientHandler> clients = new HashMap<>();
+    private ExecutorService es;
 
     public Server(AuthService authService) {
         this.authService = authService;
         try {
             serverSocket = new ServerSocket(8189);
+
+            es = Executors.newCachedThreadPool();
+            es.execute(new StartKiller());
+
             System.out.println("Сервер запущен, ожидаем подключения...");
         } catch (IOException e) {
             System.out.println("Ошибка инициализации сервера");
@@ -24,6 +35,7 @@ public class Server {
 
     public void close() {
         try {
+            es.shutdown();
             serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,5 +96,32 @@ public class Server {
 
         if (clients.containsKey(nickTo))
             clients.get(nickTo).sendMessage(message);
+    }
+
+
+    class StartKiller implements Runnable {
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    Thread.sleep(1000);
+                    LocalDateTime now = LocalDateTime.now();
+                    Iterator<ClientHandler> i = clients.values().iterator();
+                    while (i.hasNext()) {
+                        ClientHandler client = i.next();
+                        if (!client.isActive()
+                                && Duration
+                                .between(client.getConnectTime(), now)
+                                .getSeconds() > MAX_DELAY_TIME) {
+                            System.out.println("close unauthorized user");
+                            client.close();
+                            i.remove();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
