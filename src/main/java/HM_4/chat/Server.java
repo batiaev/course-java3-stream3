@@ -23,10 +23,11 @@ public class Server {
         try {
             serverSocket = new ServerSocket(8189);
 
+            System.out.println("Сервер запущен, ожидаем подключения...");
+
             es = Executors.newCachedThreadPool();
             es.execute(new StartKiller());
 
-            System.out.println("Сервер запущен, ожидаем подключения...");
         } catch (IOException e) {
             System.out.println("Ошибка инициализации сервера");
             close();
@@ -96,6 +97,10 @@ public class Server {
 
         if (clients.containsKey(nickTo))
             clients.get(nickTo).sendMessage(message);
+    }
+
+    public ExecutorService getEs() {
+        return es;
     }
 
 

@@ -13,7 +13,6 @@ public class ClientHandler implements Closeable{
     private Socket socket;
     private String nick;
     private Channel channel;
-    private Thread t;
     private BufferedReader in = null;
     private BufferedWriter out = null;
 
@@ -38,7 +37,8 @@ public class ClientHandler implements Closeable{
             );
 
             channel = ChannelBase.of(socket);
-            t = new Thread(() -> {
+
+            server.getEs().submit(new Thread(() -> {
 
                 while (!auth()) {
                     long a = System.currentTimeMillis() - current;
@@ -81,8 +81,7 @@ public class ClientHandler implements Closeable{
                             System.out.println("invalid message type");
                     }
                 }
-            });
-            t.start();
+            }));
 
         } catch (IOException e) {
             e.printStackTrace();
