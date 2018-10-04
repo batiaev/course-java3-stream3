@@ -9,12 +9,15 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Server implements Closeable {
     private static final long MAX_DELAY_TIME = 120;
     private ServerSocket serverSocket;
     private AuthService authService;
     private Map<String, ClientHandler> clients = new HashMap<>();
+    private ExecutorService executor = Executors.newCachedThreadPool();
 
     public Server(AuthService authService) {
         this.authService = authService;
@@ -91,6 +94,7 @@ public class Server implements Closeable {
         if (clients.containsKey(nickTo))
             clients.get(nickTo).sendMessage(message);
     }
+
     private void startKiller() {
         new Thread(() -> {
             while (true) {
@@ -112,5 +116,9 @@ public class Server implements Closeable {
                 }
             }
         }).start();
+    }
+
+    public void execute(Runnable task) {
+        executor.submit(task);
     }
 }
