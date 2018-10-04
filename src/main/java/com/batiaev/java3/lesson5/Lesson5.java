@@ -10,13 +10,26 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Lesson5 {
-    public static void main(String[] args) {
-        concurrentCollection();
-        atomic();
-        lock();
-        barrier();
-        semaphore();
-        cdl();
+    public static void main(String[] args) throws InterruptedException {
+
+        CyclicBarrier startLine = new CyclicBarrier(5);
+        try {
+            startLine.await();
+        } catch (BrokenBarrierException ignored) {
+        }
+        startLine.isBroken();
+
+
+        CountDownLatch countDownLatch = new CountDownLatch(4);
+        countDownLatch.countDown();
+        countDownLatch.await();
+
+//        concurrentCollection();
+//        atomic();
+//        lock();
+//        barrier();
+//        semaphore();
+//        cdl();
     }
 
     private static void cdl() {
@@ -29,18 +42,38 @@ public class Lesson5 {
         }
     }
 
-    private static void semaphore() {
-        Semaphore semaphore = new Semaphore(3);
-        //3
-        //+1 = 2
-        //+1 = 1
-        //-1 = 3
-        try {
-            semaphore.acquire(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    private static void semaphore() throws InterruptedException {
+        Semaphore semaphore = new Semaphore(3);//парковка на 3 машины
+
+        for (int i = 0; i < 4; ++i) {
+
+            int finalI = i;
+            new Thread(() -> {
+                System.out.println("Машина " + finalI + " заняла парковку");
+                try {
+                    semaphore.acquire();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Машина " + finalI + "ушли за продуктами");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                semaphore.release();
+
+                System.out.println("Машина " + finalI + " уехали");
+
+            }).start();
+
         }
-        semaphore.release();
+
+//        semaphore.acquire(2);//приехал автобус
+//        semaphore.acquire();//приехал автомобиль
+//        semaphore.release();//уехал автомобиль
+//        semaphore.release(2);//уехал автобус
+//        int availablePermits = semaphore.availablePermits();//количество свободных мест
     }
 
     private static void barrier() {
@@ -54,7 +87,7 @@ public class Lesson5 {
                 } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-            });
+            }).start();
         }
     }
 
@@ -65,7 +98,7 @@ public class Lesson5 {
     }
 
     private static void atomic() {
-        AtomicInteger integer =new AtomicInteger(1);
+        AtomicInteger integer = new AtomicInteger(1);
         int andIncrement = integer.getAndIncrement();
 
         DoubleAdder adder = new DoubleAdder();
