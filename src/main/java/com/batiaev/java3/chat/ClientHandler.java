@@ -19,30 +19,32 @@ public class ClientHandler implements Closeable {
 
         try {
             channel = ChannelBase.of(socket);
-            new Thread(() -> {
-                auth();
-                System.out.println(nick + " handler waiting for new massages");
-                while (socket.isConnected()) {
-                    Message msg = channel.getMessage();
-                    if (msg == null) continue;
-                    switch (msg.getType()) {
-                        case EXIT_COMMAND:
-                            server.unsubscribe(this);
-                            break;
-                        case PRIVATE_MESSAGE:
-                            sendPrivateMessage(msg.getBody());
-                            break;
-                        case BROADCAST_CHAT:
-                            server.sendBroadcastMessage(nick + " : " + msg.getBody());
-                        case CHANGE_LOGIN:
-                            changeLogin();
-                        default:
-                            System.out.println("invalid message type");
-                    }
-                }
-            }).start();
+            server.execute(this::process);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void process() {
+        auth();
+        System.out.println(nick + " handler waiting for new massages");
+        while (socket.isConnected()) {
+            Message msg = channel.getMessage();
+            if (msg == null) continue;
+            switch (msg.getType()) {
+                case EXIT_COMMAND:
+                    server.unsubscribe(this);
+                    break;
+                case PRIVATE_MESSAGE:
+                    sendPrivateMessage(msg.getBody());
+                    break;
+                case BROADCAST_CHAT:
+                    server.sendBroadcastMessage(nick + " : " + msg.getBody());
+                case CHANGE_LOGIN:
+                    changeLogin();
+                default:
+                    System.out.println("invalid message type");
+            }
         }
     }
 
