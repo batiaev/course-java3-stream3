@@ -34,9 +34,9 @@ public class Car implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println(this.name + " готовится");
+            System.out.println(name + " готовится");
             Thread.sleep(500 + (int) (Math.random() * 800));
-            System.out.println(this.name + " готов");
+            System.out.println(name + " готов");
 
             readyBarrier.await();
 
@@ -54,23 +54,25 @@ public class Car implements Runnable {
     }
 
     public void readyStage(Stage stage) {
-        System.out.println(name + " готовится к этапу(ждет): " + stage.getDescription());
+        System.out.println(race.getTime() + " : " + name + " готовится к этапу(ждет): " + stage.getDescription());
     }
 
     public void startStage(Stage stage) {
-        System.out.println(name + " начал этап: " + stage.getDescription());
+        System.out.println(race.getTime() + " : " + name + " начал этап: " + stage.getDescription());
     }
 
     public void finishStage(Stage stage) {
         try {
             if (stage == race.getStages().get(race.getStages().size() - 1)) {
                 winnerSemaphore.acquire();
+                System.out.println(race.getTime() + " : " + name + " закончил этап: " + stage.getDescription());
                 if (winner == null) {
-                    System.out.println(name + " закончил этап: " + stage.getDescription());
                     winner = this;
-                    System.out.println(this.name + " - WIN");
+                    System.out.println(race.getTime() + " : " + name + " - WIN");
                 }
                 winnerSemaphore.release();
+            } else {
+                System.out.println(race.getTime() + " : " + name + " закончил этап: " + stage.getDescription());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

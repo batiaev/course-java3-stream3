@@ -29,13 +29,15 @@ public class MainClass {
 
             readyBarrier.await();
 
-            System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
+            race.initStartTime();
+
+            System.out.println(race.getTime() + " : ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
 
             startBarrier.await();
 
             finishAll.await();
 
-            System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
+            System.out.println(race.getTime() + " : ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
