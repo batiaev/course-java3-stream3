@@ -1,8 +1,10 @@
 package com.batiaev.java3.lesson4;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
 public class Account {
     private long id;
     private double amount;
