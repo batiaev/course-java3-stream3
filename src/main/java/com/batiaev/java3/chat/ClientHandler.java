@@ -1,10 +1,13 @@
 package com.batiaev.java3.chat;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.net.Socket;
 import java.time.LocalDateTime;
 
+@Slf4j
 public class ClientHandler implements Closeable {
     private Server server;
     private Socket socket;
@@ -21,29 +24,33 @@ public class ClientHandler implements Closeable {
             channel = ChannelBase.of(socket);
             server.execute(this::process);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Ошибка при подключении клиента", e);
         }
     }
 
     private void process() {
         auth();
-        System.out.println(nick + " handler waiting for new massages");
+        log.info(nick + " handler waiting for new massages");
         while (socket.isConnected()) {
             Message msg = channel.getMessage();
             if (msg == null) continue;
             switch (msg.getType()) {
                 case EXIT_COMMAND:
                     server.unsubscribe(this);
+                    log.info(nick + " - exit");
                     break;
                 case PRIVATE_MESSAGE:
                     sendPrivateMessage(msg.getBody());
+                    log.info(nick + " - send private message");
                     break;
                 case BROADCAST_CHAT:
                     server.sendBroadcastMessage(nick + " : " + msg.getBody());
+                    log.info(nick + " - send message");
                 case CHANGE_LOGIN:
                     changeLogin();
+                    log.info(nick + " - change login");
                 default:
-                    System.out.println("invalid message type");
+                    log.error(msg.getType().name() + " - invalid message type");
             }
         }
     }
@@ -75,21 +82,21 @@ public class ClientHandler implements Closeable {
                 if (commands.length >= 3) {
                     String login = commands[1];
                     String password = commands[2];
-                    System.out.println("Try to login with " + login + " and " + password);
+                    log.info("Try to login with " + login + " and " + password);
                     String nick = server.getAuthService()
                             .authByLoginAndPassword(login, password);
                     if (nick == null) {
                         String msg = "Invalid login or password";
-                        System.out.println(msg);
+                        log.error(msg);
                         channel.sendMessage(msg);
                     } else if (server.isNickTaken(nick)) {
                         String msg = "Nick " + nick + " already taken!";
-                        System.out.println(msg);
+                        log.error(msg);
                         channel.sendMessage(msg);
                     } else {
                         this.nick = nick;
                         String msg = "Auth ok!";
-                        System.out.println(msg);
+                        log.info(msg);
                         channel.sendMessage(msg);
                         server.subscribe(this);
                         break;
@@ -97,6 +104,7 @@ public class ClientHandler implements Closeable {
                 }
             } else {
                 channel.sendMessage("Invalid command!");
+                log.error(message.getType().name() + " - invalid command before auth!");
             }
         }
     }

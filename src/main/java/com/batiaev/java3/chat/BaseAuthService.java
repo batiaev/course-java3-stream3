@@ -1,12 +1,13 @@
 package com.batiaev.java3.chat;
 
+import lombok.extern.slf4j.Slf4j;
 import org.sqlite.JDBC;
 
-import java.io.InputStream;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 public class BaseAuthService implements AuthService {
     private Map<String, User> users = new HashMap<>();
     private static Connection connection;
@@ -27,7 +28,7 @@ public class BaseAuthService implements AuthService {
                 users.put(login, new User(login, pass, nick));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Ошибка инициализации", e);
         } finally {
             disconnect();
         }
@@ -38,27 +39,27 @@ public class BaseAuthService implements AuthService {
         stmp = connection.createStatement();
     }
 
+    public static void disconnect() {
+        try {
+            stmp.close();
+        } catch (Exception e) {
+            log.error("Ошибка закрытия запроса к базе", e);
+        }
+        try {
+            connection.close();
+        } catch (Exception e) {
+            log.error("Ошибка закрытия подключения к базе данных", e);
+        }
+    }
+
     public void changeLogin(String login, String nick) {
         try {
             connect();
             stmp.execute("UPDATE users SET login=" + login + " WHERE nick = " + nick);
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Ошибка обновления логина", e);
         } finally {
             disconnect();
-        }
-    }
-
-    public static void disconnect() {
-        try {
-            stmp.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -78,7 +79,7 @@ public class BaseAuthService implements AuthService {
         User user = new User(login, password, nick);
         if (users.containsKey(nick)) {
             users.get(nick).setActive(true);
-            System.out.println("User with nick " + nick + "already exist");
+            log.error("User with nick " + nick + "already exist");
         } else {
             users.put(nick, user);
             persist(user);
@@ -93,7 +94,7 @@ public class BaseAuthService implements AuthService {
                     + user.getLogin() + ", "
                     + user.getPassword() + ", " + user.getNickname() + "  )");
         } catch (SQLException e) {
-            e.printStackTrace();
+            log.error("Ошибка при добавлении пользователя", e);
         } finally {
             disconnect();
         }

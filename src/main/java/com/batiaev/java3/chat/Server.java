@@ -1,5 +1,7 @@
 package com.batiaev.java3.chat;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -12,6 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 public class Server implements Closeable {
     private static final long MAX_DELAY_TIME = 120;
     private ServerSocket serverSocket;
@@ -23,22 +26,12 @@ public class Server implements Closeable {
         this.authService = authService;
         try {
             serverSocket = new ServerSocket(8189);
-            System.out.println("Сервер запущен, ожидаем подключения...");
+            log.info("Сервер запущен, ожидаем подключения...");
             startKiller();
         } catch (IOException e) {
-            System.out.println("Ошибка инициализации сервера");
+            log.error("Ошибка инициализации сервера", e);
             close();
         }
-    }
-
-    @Override
-    public void close() {
-        try {
-            serverSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.exit(0);
     }
 
     public static void main(String[] args) {
@@ -47,13 +40,23 @@ public class Server implements Closeable {
         server.start();
     }
 
+    @Override
+    public void close() {
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            log.error("Ошибка закрытия сокета сервера", e);
+        }
+        System.exit(0);
+    }
+
     private void start() {
         while (true) {
             try {
                 Socket clientSocket = serverSocket.accept();
                 ClientHandler clientHandler = new ClientHandler(clientSocket, this);
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("Ошибка подключения клиента", e);
             }
         }
     }
@@ -75,14 +78,14 @@ public class Server implements Closeable {
     public void subscribe(ClientHandler clientHandler) {
         String msg = "Клиент " + clientHandler.getNick() + " подключился";
         sendBroadcastMessage(msg);
-        System.out.println(msg);
+        log.info(msg);
         clients.put(clientHandler.getNick(), clientHandler);
     }
 
     public void unsubscribe(ClientHandler clientHandler) {
         String msg = "Клиент " + clientHandler.getNick() + " отключился";
         sendBroadcastMessage(msg);
-        System.out.println(msg);
+        log.info(msg);
         clients.remove(clientHandler.getNick());
     }
 
@@ -106,13 +109,13 @@ public class Server implements Closeable {
                         ClientHandler client = i.next();
                         if (!client.isActive()
                                 && Duration.between(client.getConnectTime(), now).getSeconds() > MAX_DELAY_TIME) {
-                            System.out.println("close unauthorized user");
+                            log.error("Отключен не авторизованный пользователь");
                             client.close();
                             i.remove();
                         }
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    log.error("Ошибка при ожидании авторизации", e);
                 }
             }
         }).start();
