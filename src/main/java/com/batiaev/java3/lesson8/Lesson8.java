@@ -1,4 +1,4 @@
-package com.batiaev.java3.lesson7.lesson8;
+package com.batiaev.java3.lesson8;
 
 public class Lesson8 {
     private String name;
